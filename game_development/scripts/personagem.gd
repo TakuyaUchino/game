@@ -43,7 +43,7 @@ func move():
 
 func go_to_idle_state():
 	status = PlayerState.IDLE
-	sprite.play("idle")
+	sprite.play("idle")	
 	
 func go_to_walk_state():
 	status = PlayerState.WALK
