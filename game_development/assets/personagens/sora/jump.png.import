@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d37v0ovnkseir"
-path="res://.godot/imported/jump.png-af36ece44da3f00b084bbd8c9d9645e7.ctex"
+uid="uid://gg405je2kksm"
+path="res://.godot/imported/jump.png-5a697e168065e3001507fed03c692307.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/personagens/jump.png"
-dest_files=["res://.godot/imported/jump.png-af36ece44da3f00b084bbd8c9d9645e7.ctex"]
+source_file="res://assets/personagens/sora/jump.png"
+dest_files=["res://.godot/imported/jump.png-5a697e168065e3001507fed03c692307.ctex"]
 
 [params]
 

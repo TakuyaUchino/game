@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://0op6rv14qe58" path="res://scripts/personagem.gd" id="1_wtnic"]
 [ext_resource type="Texture2D" uid="uid://cg2kag0a1gxsq" path="res://assets/personagens/combo_attack.png" id="2_en60c"]
 [ext_resource type="Texture2D" uid="uid://suh64f735chn" path="res://assets/personagens/naruto_sprite.png" id="3_bss74"]
-[ext_resource type="Texture2D" uid="uid://d37v0ovnkseir" path="res://assets/personagens/jump.png" id="3_hfj4i"]
+[ext_resource type="Texture2D" uid="uid://d37v0ovnkseir" path="res://assets/personagens/jump_sprite.png" id="3_hfj4i"]
 [ext_resource type="Texture2D" uid="uid://cv4yumwoa56ll" path="res://assets/personagens/run.png" id="4_hfj4i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jc3tx"]
@@ -315,6 +315,33 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_en60c"]
 size = Vector2(14, 33)
 
+[sub_resource type="Animation" id="Animation_jc3tx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"jump_up"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_hfj4i"]
 resource_name = "jump"
 step = 0.1
@@ -355,33 +382,6 @@ tracks/2/keys = {
 "args": [],
 "method": &"go_to_jump"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_jc3tx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"jump_up"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i8b40"]

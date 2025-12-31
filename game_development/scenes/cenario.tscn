@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=4 uid="uid://c3ls30ps7lor5"]
 
-[ext_resource type="PackedScene" uid="uid://6814qdyeybm3" path="res://scenes/personagem.tscn" id="1_2p5gn"]
 [ext_resource type="Texture2D" uid="uid://bj0xj2snx5c6s" path="res://assets/Assets_City.png" id="2_4xtve"]
+[ext_resource type="PackedScene" uid="uid://du365cpbeo8m2" path="res://scenes/sora.tscn" id="3_4xtve"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nrd35"]
 texture = ExtResource("2_4xtve")
@@ -208,5 +208,5 @@ tile_map_data = PackedByteArray("AAD9/wAAAAABAAAAAAD+/wAAAAABAAAAAAD//wAAAAABAAA
 tile_set = SubResource("TileSet_atgyb")
 use_kinematic_bodies = true
 
-[node name="personagem" parent="." instance=ExtResource("1_2p5gn")]
-position = Vector2(-3, -36)
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_4xtve")]
+position = Vector2(-1, -42)

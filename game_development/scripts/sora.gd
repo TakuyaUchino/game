@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 enum PlayerState {IDLE, WALK, RUN, JUMP, ATTACK}
-@onready var sprite: AnimatedSprite2D = $sprite
+@onready var sprite_anim: AnimatedSprite2D = $sprite_anim
 
 var status: PlayerState
 
@@ -37,47 +37,50 @@ func move():
 	if direction:
 		velocity.x = move_toward(velocity.x, direction * SPEED, 40)
 		velocity.x = direction * SPEED
-		sprite.scale.x = direction
+		sprite_anim.scale.x = direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, 40)
 
 func go_to_idle_state():
 	status = PlayerState.IDLE
-	sprite.play("idle")	
+	sprite_anim.play("idle")	
 	
 func go_to_walk_state():
 	status = PlayerState.WALK
-	sprite.play("run")
+	sprite_anim.play("walk")
 	
 func go_to_run_state():
 	status = PlayerState.RUN
-	sprite.play("run")
+	sprite_anim.play("run")
 
 func go_to_jump():
 	status = PlayerState.JUMP
-	sprite.play("jump")
+	sprite_anim.play("jump")
 	velocity.y = JUMP_VELOCITY
 	
 func go_to_attack_state():
 	status = PlayerState.ATTACK
-	sprite.play("combo_attack")
-	await sprite.animation_finished
+	sprite_anim.play("combo_attack")
+	await sprite_anim.animation_finished
 	go_to_idle_state()
 
 func idle_state():
 	move()
 	if velocity.x != 0:
-		go_to_run_state()
+		go_to_walk_state()
 		return
 	if Input.is_action_just_pressed("ui_up"):
 		go_to_jump()
 		return
-	if Input.is_action_just_released("combo_attack1") && Input.is_action_pressed("combo_attack2"):
-		go_to_attack_state()
-		return
 
 func walk_state():
 	move()
+	if velocity.x == 0:
+		go_to_idle_state()
+		return
+	if Input.is_action_just_pressed("ui_up"):
+		go_to_jump()
+		return
 
 func run_state():
 	move()
@@ -94,7 +97,7 @@ func jump_state():
 		if velocity.x == 0:
 			go_to_idle_state()
 		else:
-			go_to_run_state()
+			go_to_walk_state()
 		return
 
 func attack_state():
